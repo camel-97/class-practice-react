@@ -1,14 +1,13 @@
 import React, { useState } from 'react';
 
-// eslint-disable-next-line react/function-component-definition, react/prop-types
 const FunctionalInput = ({ name }) => {
-  /*
-    We declare two state variables and their setters,
-    one to store the To-Do's
-    and the other to store the value of the input field
-  */
+
   const [todos, setTodos] = useState(['Just some demo tasks', 'As an example']);
   const [inputVal, setInputVal] = useState('');
+
+  const handleDelete = (indexToDelete) => {
+    setTodos(todos.filter((_, index) => index !== indexToDelete))
+  }
 
   const handleInputChange = (e) => {
     setInputVal(e.target.value);
@@ -38,8 +37,9 @@ const FunctionalInput = ({ name }) => {
       <h4>All the tasks!</h4>
       {/* The list of all the To-Do's, displayed */}
       <ul>
-        {todos.map((todo) => (
-          <li key={todo}>{todo}</li>
+        {todos.map((todo, index) => (
+          <li key={todo}>{todo}
+          <button onClick={() => handleDelete(index)}>Delete</button></li>
         ))}
       </ul>
     </section>
