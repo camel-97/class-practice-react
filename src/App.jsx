@@ -1,13 +1,10 @@
 import './App.css'
-import FunctionalInput from './FunctionalInput'
-import ClassInput from './ClassInput'
+import Counter from './ClassCount'
 
 function App() {
   return (
     <>
-      <FunctionalInput name="Functional component!" />
-      <div className="divider" />
-      <ClassInput name="Class based component!" />
+      <Counter />
     </>
   )
 }
