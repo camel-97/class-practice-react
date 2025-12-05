@@ -1,9 +1,13 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 
-const FunctionalInput = ({ name }) => {
+const FunctionalInput = ({ name, onCountChange }) => {
 
   const [todos, setTodos] = useState(['Just some demo tasks', 'As an example']);
   const [inputVal, setInputVal] = useState('');
+
+  useEffect(() => {
+    onCountChange(todos.length)
+  }, [todos])
 
   const handleDelete = (indexToDelete) => {
     setTodos(todos.filter((_, index) => index !== indexToDelete))
