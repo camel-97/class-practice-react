@@ -2,6 +2,7 @@
 
 body {
   background: linear-gradient(to right, #444, #222);
+  color: white;
 }
 
 #root,
