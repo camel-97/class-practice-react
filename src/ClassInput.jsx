@@ -15,6 +15,16 @@ class ClassInput extends Component {
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
+  componentDidMount() {
+    this.props.onCountChange(this.state.todos.length);
+  }
+
+  componentDidUpdate(prevProps, prevState) {
+    if (prevState.todos.length !== this.state.todos.length){
+        this.props.onCountChange(this.state.todos.length)
+    }
+  }
+
   handleDelete(indexToDelete) {
     this.setState((state) => ({
         ...state, 
