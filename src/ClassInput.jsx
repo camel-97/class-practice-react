@@ -10,8 +10,16 @@ class ClassInput extends Component {
       inputVal: '',
     };
 
+    this.handleDelete = this.handleDelete.bind(this);
     this.handleInputChange = this.handleInputChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
+  }
+
+  handleDelete(indexToDelete) {
+    this.setState((state) => ({
+        ...state, 
+        todos: state.todos.filter((_, index) => index !== indexToDelete)
+    }))
   }
 
   handleInputChange(e) {
@@ -49,8 +57,9 @@ class ClassInput extends Component {
         <h4>All the tasks!</h4>
         {/* The list of all the To-Do's, displayed */}
         <ul>
-          {this.state.todos.map((todo) => (
-            <li key={todo}>{todo}</li>
+          {this.state.todos.map((todo, index) => (
+            <li key={todo}>{todo}
+            <button onClick={() => this.handleDelete(index)}>Delete</button></li>
           ))}
         </ul>
       </section>
