@@ -1,5 +1,6 @@
-import { useState } from 'react'
 import './App.css'
+import FunctionalInput from './FunctionalInput'
+import ClassInput from './ClassInput'
 
 function App() {
   return (
